@@ -1,6 +1,7 @@
 import express from 'express';
 import authMiddleware from './middleware/auth.js';
 import journalRouter from './routes/journalRoutes.js';
+import summaryRouter from './routes/summaryRoutes.js';
 import authRouter from './routes/authRoutes.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -18,7 +19,8 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/auth', authRouter);
-app.use('/journal', authMiddleware, journalRouter);
+app.use('/journals',authMiddleware,journalRouter);
+app.use('/summaries', authMiddleware,summaryRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
