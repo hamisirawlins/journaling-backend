@@ -23,7 +23,7 @@ export const createEntry = async (req, res) => {
 
 export const getEntries = async (req, res) => {
     const { page, perPage } = req.query;
-    let query = supabase.from('entries').select(entry_keys).eq('creator_id', req.user.id).is('deleted_at', null);
+    let query = supabase.from('entries').select(entry_keys).eq('creator_id', req.user.id).is('deleted_at', null).order('created_at', { ascending: false });
 
     if (req.query.category) {
         let category = req.query.category.toLowerCase();

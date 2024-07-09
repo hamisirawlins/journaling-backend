@@ -2,7 +2,7 @@ import supabase from "../supabase.js";
 
 const entry_keys = 'entry_id, title, content, category ,creator_id, created_at, updated_at';
 
-//Display a summary of journal entries over a selected period i.e. daily, weekly, monthly. 
+//Summary of journal entries over a selected period i.e. daily, weekly, monthly. 
 export const getSummaries = async (req, res) => {
     const { startDate, endDate } = req.query;
 
@@ -19,8 +19,6 @@ export const getSummaries = async (req, res) => {
         const isoEndDate = new Date(endDate).toISOString();
         query = query.lte('created_at', isoEndDate);
     }
-
-    //get insights - number of entries, most used category, average number of words per entry, average number of entries per day within the selected period
     //get insights - number of entries
     const { data: entries, error: entriesError } = await query;
     if (entriesError) {
@@ -39,7 +37,7 @@ export const getSummaries = async (req, res) => {
 
     //get insights - average number of words per entry
     const totalWords = entries.reduce((acc, entry) => acc + entry.content.split(' ').length, 0);
-    const averageWordsPerEntry =  Math.ceil(totalWords / numberOfEntries);
+    const averageWordsPerEntry = Math.ceil(totalWords / numberOfEntries);
 
     //get insights - average number of entries per day rounded up to the nearest whole number
     const days = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
