@@ -15,7 +15,6 @@ export const createEntry = async (req, res) => {
         },
     ]).select(entry_keys);
     if (entryError) {
-        console.log(entryError);
         return res.status(400).json({ error: entryError.message });
     }
     return res.status(201).json(entryData[0]);
