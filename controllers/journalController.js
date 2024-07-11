@@ -4,18 +4,18 @@ import { v4 as uuidv4 } from 'uuid';
 
 const entry_keys = 'entry_id, title, content, category ,creator_id, created_at, updated_at';
 export const createEntry = async (req, res) => {
-    const { title, content, category, created_at } = req.body;
+    const { title, content, category } = req.body;
     const { data: entryData, error: entryError } = await supabase.from('entries').insert([
         {
             entry_id: uuidv4(),
             title,
             content,
             category,
-            creator_id: req.user.id,
-            created_at,
+            creator_id: req.user.id
         },
     ]).select(entry_keys);
     if (entryError) {
+        console.log(entryError);
         return res.status(400).json({ error: entryError.message });
     }
     return res.status(201).json(entryData[0]);
