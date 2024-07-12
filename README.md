@@ -6,6 +6,10 @@ A backend service for personal journaling.
 
 This is the backend service for a personal journaling app. It provides endpoints for user authentication, journal entry management, and data summaries.
 
+The API Documentation is present at:
+
+[API Documentation](https://documenter.getpostman.com/view/11541199/2sA3e5d8FD)
+
 ## Features
 
 - User Authentication
