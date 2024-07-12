@@ -35,7 +35,7 @@ This is the backend service for a personal journaling app. It provides endpoints
 
 ```bash
 git clone <repository-url>
-cd journaling-backend
+cd <appropriate-directory>
 ```
 
 2. Install Dependencies:
