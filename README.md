@@ -4,7 +4,7 @@ A backend service for personal journaling.
 
 ## Project Overview
 
-This is the backend service for a personal journaling app. It provides endpoints for user authentication, journal entry management, and data summaries.
+This is the backend service for a personal journaling app. It provides endpoints for user authentication, journal entry management, and data summaries. Ensure this service is up and running on port 3000 before the frontend service for a seamless user experience. 
 
 The API Documentation is present at:
 
